@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Medical Reminder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f6a1b1, #a2c9f4);
+    }
+
+    form {
+      max-width: 400px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    form h2 {
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    form input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      transition: border-color 0.3s;
+    }
+
+    form input:focus {
+      border-color: #4a90e2;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #357ABD;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+  <form id="registerForm">
+    <h2>Create an Account</h2>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+    
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Registration successful!');
+    });
+  </script>
+</body>
+</html>
