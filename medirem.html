@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThingSpeak Data Fetch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4A90E2;
+        }
+
+        .data {
+            margin-top: 30px;
+            font-size: 1.2rem;
+        }
+
+        .data div {
+            margin: 10px 0;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ThingSpeak Data Fetch</h1>
+        <div id="error-message" class="error-message"></div>
+        <div class="data">
+            <div><strong>Field 1:</strong> <span id="field1">Loading...</span></div>
+            <div><strong>Field 2:</strong> <span id="field2">Loading...</span></div>
+            <div><strong>Field 3:</strong> <span id="field3">Loading...</span></div>
+            <div><strong>Field 4:</strong> <span id="field4">Loading...</span></div>
+        </div>
+    </div>
+
+    <script>
+        // Replace with your ThingSpeak channel ID and API key
+        const channelID = 'YOUR_CHANNEL_ID';  // Replace with your ThingSpeak channel ID
+        const readAPIKey = 'YOUR_API_KEY';    // Replace with your ThingSpeak Read API key
+
+        // ThingSpeak API URL for fetching data
+        const apiURL = `https://api.thingspeak.com/channels/${channelID}/fields/1.json?api_key=${readAPIKey}&results=1`;
+
+        // Fetch data from ThingSpeak
+        fetch(apiURL)
+            .then(response => response.json())
+            .then(data => {
+                // Handle successful response
+                const feed = data.feeds[0];
+                if (feed) {
+                    document.getElementById('field1').textContent = feed.field1 || 'No data';
+                    document.getElementById('field2').textContent = feed.field2 || 'No data';
+                    document.getElementById('field3').textContent = feed.field3 || 'No data';
+                    document.getElementById('field4').textContent = feed.field4 || 'No data';
+                } else {
+                    document.getElementById('error-message').textContent = 'No data available from ThingSpeak channel.';
+                }
+            })
+            .catch(error => {
+                // Handle any errors that occur during the fetch operation
+                document.getElementById('error-message').textContent = `Error fetching data: ${error}`;
+            });
+    </script>
+
+</body>
+</html>

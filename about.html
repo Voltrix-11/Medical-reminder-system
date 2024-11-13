@@ -1,131 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Medical Reminder System</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Medical Reminder System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, rgba(128, 0, 128, 0.9), rgba(255, 182, 193, 0.9), rgba(255, 255, 255, 0.9));
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    .container {
-      max-width: 900px;
-      background: #ffffff;
-      padding: 60px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
+        .container {
+            max-width: 1000px;
+            background:; /* Semi-transparent white */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-    .container h1 {
-      font-size: 2.5rem;
-      color: #333;
-      font-weight: 700;
-      border-bottom: 3px solid #4A90E2;
-      display: inline-block;
-      margin-bottom: 30px;
-      padding-bottom: 10px;
-    }
+        .container h1 {
+            font-size: 2.8rem;
+            color: #4A4A4A;
+            font-weight: bold;
+            border-bottom: 3px solid #4A90E2;
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
 
-    .container h2 {
-      color: #4A90E2;
-      font-size: 1.8rem;
-      margin-top: 30px;
-      font-weight: 600;
-    }
+        .content-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
 
-    .container p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #555;
-      margin-top: 20px;
-      margin-bottom: 30px;
-    }
+        .text-section, .image-section {
+            flex: 1 1 45%;
+            
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
 
-    .features {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
+        .image-section img {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
 
-    .feature {
-      background: #f9fafb;
-      border-radius: 10px;
-      padding: 20px;
-      width: 45%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
+        .text-section h2 {
+            color: #4A90E2;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
 
-    .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    }
+        .text-section p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-top: 10px;
+        }
 
-    .feature-icon {
-      font-size: 2.5rem;
-      color: #4A90E2;
-      margin-bottom: 15px;
-    }
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #4A90E2;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
 
-    .back-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 25px;
-      background-color: #4A90E2;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
+        .back-btn:hover {
+            background-color: #357ABD;
+        }
 
-    .back-btn:hover {
-      background-color: #357ABD;
-    }
-  </style>
+        .custom-list li {
+            margin: 8px 0;
+            padding: 8px;
+            transition: transform 0.3s, color 0.3s, font-weight 0.3s;
+        }
+
+        .custom-list li:hover {
+            transform: scale(1.05);
+            color: #050504; /* Highlight color on hover */
+            font-weight: bold; /* Make text bold on hover */
+        }
+
+        .transparent-box {
+            background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;     
+            margin-top: 30px; /* Optional spacing above the box */
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .text-section, .image-section {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>About Us</h1>
-    
-    <h2>Our Mission</h2>
-    <p>
-      At Medical Reminder System, our mission is to empower you in managing your health effortlessly.
-      We know how important it is to stay on top of medications, appointments, and wellness routines.
-      Our system provides easy, reliable, and timely reminders to ensure your health remains a priority.
-    </p>
-    
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">📅</div>
-        <h3>Appointment Reminders</h3>
-        <p>Never miss a medical appointment. Our reminder system ensures that you’re always prepared for your next consultation or check-up.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">⏰</div>
-        <h3>Medication Alerts</h3>
-        <p>Stay on track with your medication schedule. Our alerts are designed to help you manage doses efficiently and effectively.</p>
-      </div>
-    </div>
+    <div class="container">
+        <h1>About Us</h1>
 
-    <a href="index.html" class="back-btn">Back to Home</a>
-  </div>
+        <div class="content-section">
+            <!-- Text Section -->
+            <div class="text-section">
+                <h2>OUR GROUP MEMBERS:</h2>
+                <ol class="custom-list">
+                    <h4><li>VIRUNCH SRIVASTAVA(BT24GCS754)</li></h4>
+                    <li>AKSHIT RAJ(BT24GCS067)</li>
+                    <li>SIDDHANT RAWAL(BT24GCS015)</li>
+                    <li>VANSH(BT24GCS307)</li>
+                </ol>
+                <h4>GROUP MENTOR: VRUNDA DELWADIYA</h4>
+            </div>
+
+        </div>
+
+        <div class="transparent-box">
+            <i>
+                OUR TEAM 20 received the exciting opportunity to work on a project that focuses on creating a medical reminder system.Our project focuses on the development of a Medical Reminder System prototype designed to assist patients in managing their medication schedules effectively. 
+            </i>
+
+        </div>
+
+        <a href="register.html" class="back-btn">Go to Registration</a>
+    </div>
 </body>
 </html>
