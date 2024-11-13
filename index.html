@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Medical Reminder System</title>
+  <title>Medical Reminder System</title>
   <style>
     * {
       margin: 0;
@@ -12,120 +12,283 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, rgba(128, 0, 128, 0.9), rgba(255, 182, 193, 0.9), rgba(255, 255, 255, 0.9));
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #141414;
+      color: white;
+      overflow-x: hidden;
+      height: 100vh;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
+
+    .navbar img {
+      width: 120px;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      font-size: 1rem;
+      margin-left: 30px;
+      text-decoration: none;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #ff6a00;
+      text-decoration: underline;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      height: 100vh;
+      background: url('https://scitechdaily.com/images/Artificial-Intelligence-Drug-Medicine-Discovery.jpg') no-repeat center center/cover;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 900px;
-      /* Semi-transparent white background */
-      padding: 60px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      color: white;
       text-align: center;
+      z-index: 1;
+      position: relative;
     }
 
-    .container h1 {
-      font-size: 2.5rem;
-      color: #4A4A4A;
-      font-weight: 700;
-      border-bottom: 3px solid #4A90E2;
-      display: inline-block;
-      margin-bottom: 30px;
-      padding-bottom: 10px;
-    }
-
-    .container h2 {
-      color: #4A90E2;
-      font-size: 1.8rem;
-      margin-top: 30px;
-      font-weight: 600;
-    }
-
-    .container p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #555;
-      margin-top: 20px;
-      margin-bottom: 30px;
-    }
-
-    .features {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-
-    .feature {
-      background: rgba(245, 245, 245, 0.9); /* Light grey with slight transparency */
-      border-radius: 10px;
-      padding: 20px;
-      width: 45%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
-
-    .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-icon {
-      font-size: 2.5rem;
-      color: #4A90E2;
-      margin-bottom: 15px;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 25px;
-      background-color: #4A90E2;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
+    .hero-banner h1 {
+      font-size: 4rem;
       font-weight: bold;
-      transition: background 0.3s;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
     }
 
-    .back-btn:hover {
-      background-color: #357ABD;
+    .hero-banner p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     }
+
+    /* About Us Section */
+    .about-us-section {
+      padding: 50px 20px;
+      background-color: #222;
+      text-align: center;
+    }
+
+    .about-us-title {
+      font-size: 2.5rem;
+      color: #ff6a00;
+      margin-bottom: 20px;
+    }
+
+    .about-us-content {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #ccc;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #222;
+    }
+
+    .features-title {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #ff6a00;
+    }
+
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature-card img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 180px;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-top: 15px;
+      color: #fff;
+    }
+
+    .feature-card p {
+      color: #ccc;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      text-align: center;
+      color: #888;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Button Styles */
+    .btn {
+      background-color: #ff6a00;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-top: 20px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e65c00;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-banner h1 {
+        font-size: 3rem;
+      }
+
+      .hero-banner p {
+        font-size: 1.2rem;
+      }
+
+      .features-title {
+        font-size: 2rem;
+      }
+
+      .feature-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+
+      .navbar .nav-links a {
+        margin-left: 15px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Mobile-First Enhancements */
+    @media (max-width: 480px) {
+      .navbar img {
+        width: 80px;
+      }
+
+      .hero-banner h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-banner p {
+        font-size: 1rem;
+      }
+
+      .feature-card {
+        padding: 15px;
+      }
+
+      .feature-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .feature-card p {
+        font-size: 0.9rem;
+      }
+    }
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>About Us</h1>
-    
-    <h2>Our Mission</h2>
-    <p>
-      At Medical Reminder System, our mission is to empower you in managing your health effortlessly.
-      We know how important it is to stay on top of medications, appointments, and wellness routines.
-      Our system provides easy, reliable, and timely reminders to ensure your health remains a priority.
-    </p>
-    
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">📅</div>
-        <h3>Appointment Reminders</h3>
-        <p>Never miss a medical appointment. Our reminder system ensures that you’re always prepared for your next consultation or check-up.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">⏰</div>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
+      <a href="about.html" class="btn">About Us</a>
+    </div>
+  </div>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <div>
+      <h1>Medical Reminder System</h1>
+      <p>Stay on top of your health, never miss a medication or appointment.</p>
+    </div>
+  </div>
+
+  <!-- About Us Section -->
+  <div id="about-us" class="about-us-section">
+    <div class="about-us-title">About Us</div>
+    <div class="about-us-content">
+      <p>
+        The Medical Reminder System was designed to help individuals stay on top of their health. Our goal is to ensure that you never miss an important medication or appointment, keeping you on track to a healthier and happier life. Through timely reminders and progress tracking, we make healthcare management more accessible and easier for everyone.
+      </p>
+      <a href="about.html" class="btn">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <div class="features-title">Key Features</div>
+    <div class="feature-cards">
+      <!-- Feature 1 -->
+      <div class="feature-card">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.bHabHuRnnHQUrWO8od1pzwHaHa&pid=Api&P=0&h=180" alt="Medication Alerts Image">
         <h3>Medication Alerts</h3>
-        <p>Stay on track with your medication schedule. Our alerts are designed to help you manage doses efficiently and effectively.</p>
+        <p>Get notified when it's time to take your medication. Stay on track with your health.</p>
+      </div>
+      <!-- Feature 2 -->
+      <div class="feature-card">
+        <img src="https://i.ytimg.com/vi/LFMIuKlztOg/maxresdefault.jpg" alt="Appointment Reminders Image">
+        <h3>Appointment Reminders</h3>
+        <p>Never miss an appointment. Get timely reminders for all your medical visits.</p>
+      </div>
+      <!-- Feature 3 -->
+      <div class="feature-card">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.zpXbw-BFvNDA8e2udwEuJgAAAA&pid=Api&P=0&h=180" alt="Health Tracking Image">
+        <h3>Health Progress Tracking</h3>
+        <p>Monitor your health progress and set goals for better wellness.</p>
       </div>
     </div>
-
-    <a href="index.html" class="back-btn">Back to Home</a>
   </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2024 Medical Reminder System. All rights reserved.</p>
+  </div>
+
 </body>
 </html>

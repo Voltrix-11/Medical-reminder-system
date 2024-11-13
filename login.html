@@ -81,7 +81,22 @@
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      alert('Login successful!');
+
+      // Get the entered values
+      const enteredUsername = document.getElementById('username').value;
+      const enteredPassword = document.getElementById('password').value;
+
+      // Get the registered credentials from localStorage
+      const registeredUsername = localStorage.getItem('registeredUsername');
+      const registeredPassword = localStorage.getItem('registeredPassword');
+
+      // Check if the entered credentials match the registered ones
+      if (enteredUsername === registeredUsername && enteredPassword === registeredPassword) {
+        alert('Login successful!');
+        window.location.href = 'medirem.html';  // Redirect to the medirem page
+      } else {
+        alert('Invalid username or password!');
+      }
     });
   </script>
 </body>

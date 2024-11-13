@@ -72,9 +72,6 @@
     <label for="username">Username</label>
     <input type="text" id="username" name="username" required>
     
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
-    
     <label for="password">Password</label>
     <input type="password" id="password" name="password" required>
     
@@ -84,7 +81,19 @@
   <script>
     document.getElementById('registerForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      alert('Registration successful!');
+
+      // Get the values from the form
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Save the registration details to localStorage
+      localStorage.setItem('registeredUsername', username);
+      localStorage.setItem('registeredPassword', password);
+
+      alert('Registration successful! You can now login.');
+
+      // Redirect to login page after registration
+      window.location.href = 'login.html';
     });
   </script>
 </body>
